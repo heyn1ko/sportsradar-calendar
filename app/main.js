@@ -38,7 +38,7 @@ function generateCalendar(date) {
     calendarGrid.appendChild(dayDiv);
   }
 }
-// --- Function to mark events on the calendar ---
+// --- Function to mark events on the calendar (and make it clickable) ---
 function markEventsOnCalendar(events) {
   // For each event in the JSON, find the corresponding day on the calendar and mark it
   events.forEach((event) => {
@@ -49,11 +49,23 @@ function markEventsOnCalendar(events) {
     const dayDiv = dayDivs[eventDay - 1]; // Adjust index for zero-based array
 
     if (dayDiv) {
+      // Add a visible marker to indicate the event
       const eventMarker = document.createElement('span');
       eventMarker.textContent = '•'; // Dot marker to represent an event
       eventMarker.style.color = 'red'; // Change color for visibility
       eventMarker.style.fontSize = '20px'; // Make the marker bigger
       dayDiv.appendChild(eventMarker); // Append the marker to the day div
+
+      // Make the day clickable to redirect to the event details page
+      dayDiv.style.cursor = 'pointer'; // Indicate it's clickable
+      dayDiv.addEventListener('click', () => {
+        // Redirect to the event detail page with event data passed as query parameters
+        window.location.href = `eventDetails/eventDetail.html?date=${
+          event.date
+        }&time=${event.time}&sport=${event.sport}&teams=${encodeURIComponent(
+          event.teams,
+        )}`;
+      });
     }
   });
 }
