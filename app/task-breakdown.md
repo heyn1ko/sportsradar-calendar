@@ -33,3 +33,8 @@
 ## 6. Add markers for events on the calendar
 
 - Use a dot to indicate arranged events
+
+## 7. Make the event days clickable
+
+- Made the event days clickable by adding event listeners to the day divs
+- Redirected users to the event detail page (`eventDetail.html`) with query parameters (date, time, sport, teams)
