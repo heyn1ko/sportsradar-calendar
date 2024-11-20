@@ -2,7 +2,7 @@
 
 ## 1. Set up project and create basic HTML structure
 
-- Created `index.html` file with a basic structure
+- Create `index.html` file with a basic structure
 - Add `head` and `body` tags
 - Linked external CSS and JS files
 
@@ -38,3 +38,12 @@
 
 - Made the event days clickable by adding event listeners to the day divs
 - Redirected users to the event detail page (`eventDetail.html`) with query parameters (date, time, sport, teams)
+
+## 8. Add Event Functionality (Task 3)
+
+- Create a navbar
+- Implemented a dynamic form to add new events during runtime.
+- Form fields included: Event Name, Date, Time, Sport, and Teams.
+- Submitted data dynamically updated the calendar with a new event.
+- Added an X button to allow user to cancel.
+- Styled the form and ensured proper alignment and spacing.
