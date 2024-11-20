@@ -1,35 +1,39 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #dad9d9;
   color: rgb(37, 8, 8);
   display: flex;
-  flex-direction: column; /* Ensures the layout is columnar */
   padding: 50px;
+  flex-direction: column; /* Ensures the layout is columnar */
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
   margin: 0;
 }
 
-#header {
+#navbar {
   display: flex;
-  /* justify-content: space-between; Pushes the title to the left and menu to the right */
-  align-items: center; /* Vertically center the items */
-  background-color: #dad9d9;
+  align-items: center;
+  background-color: rgb(218, 217, 217, 0.6);
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   color: #362323;
-  /* padding: 10px 20px; */
   width: 100%;
   position: fixed;
   font-weight: bold;
-
-  padding-left: 120px;
+  padding-left: 50px;
   z-index: 100;
 }
 
-#header h1 {
+#navbar h1 {
   margin: 0;
-  font-size: 24px;
   padding-right: 100px;
+
+  font-size: clamp(30px, 2vw, 24px);
   font-weight: bold;
   text-transform: uppercase;
   /* color: white; */
@@ -43,7 +47,7 @@ body {
 }
 
 #menu > li {
-  position: relative; /* Ensures the dropdown appears below the menu item */
+  position: relative;
   padding: 10px 20px;
   cursor: pointer;
 }
@@ -86,25 +90,26 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
 }
 
 #calendar-header {
   text-align: left;
-  font-size: 25px;
+  font-size: clamp(1.2rem, 2.5vw, 2.5rem);
   font-weight: bold;
   margin-bottom: 5px;
   margin-top: 30px;
   text-transform: uppercase;
   color: chocolate;
+  /* position: fixed; */
 }
 
 #calendar-days {
   display: grid;
+  justify-content: center;
+
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
-  padding: 10px;
-  font-size: 25px;
+  /* gap: 10px; */
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   color: rgb(218, 217, 217);
   background-color: chocolate;
   border-radius: 5px;
@@ -116,9 +121,9 @@ body {
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
+  /* gap: 10px; */
   padding-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 #calendar-grid div {
@@ -129,6 +134,7 @@ body {
   font-weight: bold;
   color: white;
   border: 3px solid chocolate;
+
   border-radius: 5px;
   font-size: 2.25vw;
   padding: 10px;

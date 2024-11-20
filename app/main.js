@@ -45,8 +45,7 @@ function generateCalendar(date) {
 function markEventsOnCalendar(events) {
   events.forEach((event) => {
     const eventDate = new Date(event.date);
-    const eventDay = eventDate.getDate(); // Get the day of the month for the event
-
+    const eventDay = eventDate.getDate();
     const dayDivs = document.querySelectorAll('#calendar-grid div');
     const dayDiv = dayDivs[eventDay + new Date(event.date).getDay() - 1]; // Adjust index for zero-based array
 
