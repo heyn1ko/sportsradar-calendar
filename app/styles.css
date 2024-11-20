@@ -27,7 +27,7 @@ body {
 }
 
 #header h1 {
-  margin: 0; /* Remove default margin */
+  margin: 0;
   font-size: 24px;
   padding-right: 100px;
   font-weight: bold;
@@ -52,7 +52,6 @@ body {
   display: block;
 }
 
-/* Dropdown styling */
 .dropdown {
   display: none;
   position: absolute;
@@ -64,21 +63,18 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   min-width: 150px;
-  top: 100%; /* Positioned below the parent li */
+  top: 100%;
   left: 0;
-  z-index: 10; /* Ensure dropdown appears above other content */
+  z-index: 10;
 }
 
 .dropdown li {
   padding: 10px 15px;
 }
-
 .dropdown li a {
   text-decoration: none;
   color: black;
 }
-
-/* Hover effect for dropdown items */
 .dropdown li:hover {
   background-color: chocolate;
 }
@@ -86,11 +82,11 @@ body {
 #calendar {
   width: 90vw;
   height: 80vh;
-  margin-top: 80px; /* Ensures the calendar starts below the fixed header */
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px; /* Adds padding around the content */
+  padding: 20px;
 }
 
 #calendar-header {
@@ -141,7 +137,7 @@ body {
 }
 
 #calendar-grid div:hover {
-  background-color: #4f3622; /* Hover effect for the days */
+  background-color: #4f3622;
 }
 
 form {
@@ -152,7 +148,7 @@ form {
   max-width: 98%;
   align-items: center;
   position: absolute;
-  top: 90px; /* Change this value to move the form higher or lower */
+  top: 90px;
   left: 50%;
   transform: translateX(-50%);
 }
