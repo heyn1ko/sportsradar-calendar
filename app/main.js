@@ -35,9 +35,9 @@ function generateCalendar(date) {
   for (let day = 1; day <= daysInMonth; day++) {
     const dayDiv = document.createElement('div');
     const daySpan = document.createElement('span');
-    daySpan.textContent = day; // Set the day number
-    dayDiv.appendChild(daySpan); // Append the span to the dayDiv
-    calendarGrid.appendChild(dayDiv); // Add the dayDiv to the calendar grid
+    daySpan.textContent = day;
+    dayDiv.appendChild(daySpan);
+    calendarGrid.appendChild(dayDiv);
   }
 }
 
@@ -52,13 +52,11 @@ function markEventsOnCalendar(events) {
     if (dayDiv) {
       // Add a visible marker to indicate the event
       const eventMarker = document.createElement('span');
-      eventMarker.textContent = '•';
-      eventMarker.style.color = 'red';
-      eventMarker.style.fontSize = '60px';
-      dayDiv.appendChild(eventMarker); // Append the marker to the day div
+      eventMarker.classList.add('event-marker');
+      dayDiv.appendChild(eventMarker);
 
       // Make the day clickable to redirect to the event details page
-      dayDiv.style.cursor = 'pointer'; // Indicate it's clickable
+      dayDiv.style.cursor = 'pointer';
       dayDiv.addEventListener('click', () => {
         alert(
           `Event: ${event.sport}\nDate: ${event.date}\nTime: ${event.time}\nTeams: ${event.teams}`,
@@ -102,7 +100,7 @@ function handleAddNewClick() {
 
   // Handle form submission
   form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
 
     // Collect the form data
     const eventName = document.getElementById('event-name').value;
@@ -111,7 +109,6 @@ function handleAddNewClick() {
     const eventSport = document.getElementById('event-sport').value;
     const eventTeams = document.getElementById('event-teams').value;
 
-    // Create an event object
     const newEvent = {
       name: eventName,
       date: eventDate,
@@ -119,21 +116,19 @@ function handleAddNewClick() {
       sport: eventSport,
       teams: eventTeams,
     };
-
-    // Log the event data
     console.log('New Event:', newEvent);
 
-    // Add the new event to the calendar
+    // Add the new event to calendar
     addEventToCalendar(newEvent);
 
     // After submission, remove the form
     form.remove();
   });
 
-  // Cancel button functionality to remove the form
+  // Cancel button
   const cancelButton = document.getElementById('cancel-form');
   cancelButton.addEventListener('click', () => {
-    form.remove(); // Remove the form if user clicks "Cancel"
+    form.remove();
   });
 }
 
@@ -148,10 +143,8 @@ function addEventToCalendar(eventData) {
   if (dayDiv) {
     // Add a visible marker to indicate the event
     const eventMarker = document.createElement('span');
-    eventMarker.textContent = '•';
-    eventMarker.style.color = 'blue'; // Choose a color for the new event
-    eventMarker.style.fontSize = '60px';
-    dayDiv.appendChild(eventMarker); // Append the marker to the day div
+    eventMarker.classList.add('event-marker'); // Add the class
+    dayDiv.appendChild(eventMarker);
 
     // Make the day clickable to show event details
     dayDiv.style.cursor = 'pointer';

@@ -49,5 +49,3 @@ Follow these steps to see the project on your computer:
 - **CSS**
 - **JavaScript**
 - **JSON**
-
----

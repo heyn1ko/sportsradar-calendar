@@ -3,40 +3,54 @@
 ::after {
   box-sizing: border-box;
 }
+
+/* #navbar,
+#calendar-header,
+#calendar-grid {
+  border: 1px solid red;
+} */
+html,
+body {
+  height: 100%;
+  margin: 0; /* Remove default margins */
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #dad9d9;
   color: rgb(37, 8, 8);
   display: flex;
-  padding: 50px;
-  flex-direction: column; /* Ensures the layout is columnar */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
-  margin: 0;
 }
 
 #navbar {
   display: flex;
+  justify-content: space-between; /* Push items to edges */
   align-items: center;
-  background-color: rgb(218, 217, 217, 0.6);
+  background-color: rgb(218, 217, 217, 0.3);
   font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   color: #362323;
-  width: 100%;
+  width: 100%; /* Stretch to fit the screen width */
+  padding: 50px;
+  box-sizing: border-box; /* Includes padding in width */
   position: fixed;
-  font-weight: bold;
-  padding-left: 50px;
+  top: 0;
   z-index: 100;
+  /* overflow: visible; Prevent overflow issues */
 }
 
 #navbar h1 {
   margin: 0;
-  padding-right: 100px;
-
-  font-size: clamp(30px, 2vw, 24px);
-  font-weight: bold;
+  font-size: clamp(1.2rem, 3vw, 2rem);
   text-transform: uppercase;
-  /* color: white; */
 }
 
 #menu {
@@ -44,12 +58,15 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  gap: 10px; /* Add space between menu items */
+  flex-wrap: wrap; /* Allow items to wrap onto the next line if needed */
 }
 
 #menu > li {
   position: relative;
-  padding: 10px 20px;
+  padding: 10px 15px;
   cursor: pointer;
+  white-space: nowrap; /* Prevent text wrapping on smaller screens */
 }
 
 #menu > li:hover .dropdown {
@@ -59,7 +76,7 @@ body {
 .dropdown {
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: hsla(0, 0%, 100%, 0.8);
   color: black;
   list-style: none;
   margin: 0;
@@ -69,7 +86,7 @@ body {
   min-width: 150px;
   top: 100%;
   left: 0;
-  z-index: 10;
+  z-index: 9999;
 }
 
 .dropdown li {
@@ -87,6 +104,7 @@ body {
   width: 90vw;
   height: 80vh;
   margin-top: 80px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -96,19 +114,15 @@ body {
   text-align: left;
   font-size: clamp(1.2rem, 2.5vw, 2.5rem);
   font-weight: bold;
-  margin-bottom: 5px;
-  margin-top: 30px;
+  padding-top: 60px;
   text-transform: uppercase;
   color: chocolate;
-  /* position: fixed; */
 }
 
 #calendar-days {
   display: grid;
   justify-content: center;
-
   grid-template-columns: repeat(7, 1fr);
-  /* gap: 10px; */
   font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   color: rgb(218, 217, 217);
   background-color: chocolate;
@@ -122,8 +136,10 @@ body {
   align-items: center;
   grid-template-columns: repeat(7, 1fr);
   /* gap: 10px; */
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   margin-top: 50px;
+  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
 
 #calendar-grid div {
@@ -134,12 +150,11 @@ body {
   font-weight: bold;
   color: white;
   border: 3px solid chocolate;
-
   border-radius: 5px;
   font-size: 2.25vw;
   padding: 10px;
   aspect-ratio: 1;
-  cursor: pointer; /* Make days clickable */
+  cursor: pointer;
 }
 
 #calendar-grid div:hover {
@@ -154,7 +169,7 @@ form {
   max-width: 98%;
   align-items: center;
   position: absolute;
-  top: 90px;
+  top: 20vh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -166,10 +181,10 @@ form label {
 }
 
 form input {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 0.5px solid #b8aaaa;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -177,13 +192,15 @@ form input {
 form button {
   width: 100%;
   padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: chocolate;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  width: 98%;
+  /* width: 98%; */
 }
 form button:hover {
   background-color: #553d22;
@@ -200,4 +217,13 @@ form button:hover {
 }
 #cancel-form:hover {
   color: orange;
+}
+
+.event-marker {
+  display: inline-block;
+  width: clamp(6px, 1.5vw, 12px);
+  height: clamp(6px, 1.5vw, 12px);
+  background-color: red;
+  border-radius: 50%;
+  margin-top: 4px;
 }

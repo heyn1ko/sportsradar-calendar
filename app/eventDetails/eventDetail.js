@@ -1,4 +1,4 @@
-// Parse query parameters from the URL
+// Parse query parameters
 const urlParams = new URLSearchParams(window.location.search);
 
 document.getElementById('event-date').textContent = `Date: ${urlParams.get(
